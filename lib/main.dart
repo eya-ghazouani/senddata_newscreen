@@ -51,21 +51,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      body: Center(
 
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(todos[index].title),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
