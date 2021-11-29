@@ -23,35 +23,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
 
-  final String title;
+class TodosScreen extends StatelessWidget {
+  // Requiring the list of todos.
+  const TodosScreen({Key? key, required this.todos}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
-    });
-  }
+  final List<Todo> todos;
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
-        title: Text(widget.title),
+        title: const Text('Todos'),
       ),
-
+      //passing in the ListView.builder
       body: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (context, index) {
@@ -60,14 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
+
 class Todo {
   final String title;
   final String description;
