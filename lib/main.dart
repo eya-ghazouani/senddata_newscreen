@@ -61,14 +61,12 @@ class TodosScreen extends StatelessWidget {
   }
 }
 class DetailScreen extends StatelessWidget {
-  // In the constructor, require a Todo.
-  const DetailScreen({Key? key, required this.todo}) : super(key: key);
-
-  // Declare a field that holds the Todo.
-  final Todo todo;
+  const DetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final todo = ModalRoute.of(context)!.settings.arguments as Todo;
+
     // Use the Todo to create the UI.
     return Scaffold(
       appBar: AppBar(
@@ -81,6 +79,7 @@ class DetailScreen extends StatelessWidget {
     );
   }
 }
+
 
 class Todo {
   final String title;
