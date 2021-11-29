@@ -11,10 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
+      todos = List.generate(
+    20,
+    (i) => Todo(
+      'Todo $i',
+      'A description of what needs to be done for Todo $i',
+    ),
+    ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
